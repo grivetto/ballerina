@@ -291,15 +291,15 @@ function getInitialLanguage(): Language {
   if (typeof window !== 'undefined') {
     const params = new URLSearchParams(window.location.search);
     const urlLang = params.get('lang')?.toLowerCase();
-    if (urlLang === 'it' || urlLang === 'en' || urlLang === 'th') {
-      return urlLang;
+    if (urlLang === 'it' || urlLang === 'en' || urlLang === 'es' || urlLang === 'th') {
+      return urlLang as Language;
     }
     const saved = localStorage.getItem('etheree_lang')?.toLowerCase();
-    if (saved === 'it' || saved === 'en' || saved === 'th') {
-      return saved;
+    if (saved === 'it' || saved === 'en' || saved === 'es' || saved === 'th') {
+      return saved as Language;
     }
   }
-  return 'en';
+  return 'it';
 }
 
 // --- Components ---
